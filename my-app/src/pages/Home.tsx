@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 import oceanBackground from './style/home-page-ocean-background.gif';
 import React from "react";
-import 
+import './style/bubblefont.css'
 // Game Main Page
 
 export function Home() {
   return (
     <React.Fragment>
-      <div
+      <div className= "sniglet-extrabold"
         style={{
           backgroundImage: `url(${oceanBackground})`, // Corrected path and use of template literals
           backgroundSize: 'cover',
@@ -18,7 +18,7 @@ export function Home() {
           justifyContent: 'center' // Optional: center items horizontally
         }}
       >
-        <h1 style={{ fontFamily: 'Arial', fontSize: '5rem', color: 'navy' }}>
+        <h1  style={{ fontSize: '5rem', color: 'navy' }}>
           Deep Sea Deepfake Discovery!
         </h1>
       </div>
