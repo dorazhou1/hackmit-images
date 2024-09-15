@@ -7,6 +7,7 @@ import { FormEvent, useState } from "react";
 import { api } from "../../convex/_generated/api";
 import { MessageList } from "@/Chat/MessageList";
 import { Message } from "@/Chat/Message";
+import { Image } from "@/components/Image";
 
 export function Chat({ viewer }: { viewer: string }) {
   const [newMessageText, setNewMessageText] = useState("");
@@ -41,6 +42,9 @@ export function Chat({ viewer }: { viewer: string }) {
             Send
           </Button>
         </form>
+      </div>
+      <div>
+        <Image imageID="hhiiiiiii" />
       </div>
     </>
   );
