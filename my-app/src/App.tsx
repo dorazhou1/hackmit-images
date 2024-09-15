@@ -10,8 +10,7 @@ import { ChatApp } from "@/pages/ChatApp";
 import { SelectImages } from "./pages/SelectImages";
 import { ImagePage } from "@/pages/ImagePage";
 import { ConfigureGame } from "@/pages/ConfigureGame";
-import { Won } from "@/pages/Won";
-import { Lost } from "@/pages/Lost";
+import { Finish } from "@/pages/Won";
 
 export default function App() {
   return (
@@ -24,8 +23,7 @@ export default function App() {
           {/* <Route path="/test" element={<Home />} /> */}
           <Route path="/image" element={<ImagePage />} />
           <Route path="/configuregame" element={<ConfigureGame />} />
-          <Route path="/youwon" element={<Won />} />
-          <Route path="/youlost" element={<Lost />} />
+          <Route path="/youredone" element={<Finish />} />
         </Routes>
       </Router>
     </>

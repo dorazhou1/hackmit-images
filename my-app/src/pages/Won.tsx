@@ -3,7 +3,7 @@ import './style/result.css'
 import { useNavigate } from "react-router-dom";
 import happywhale from './style/HappyWhale.gif'
 
-export function Won() {
+export function Finish() {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -23,7 +23,7 @@ export function Won() {
         <div className="container">
         <div className="title bubblefont">
         <img src={happywhale} alt="Description of the image" />
-          <p>YOU WON!</p>
+          <p>YOU'RE DONE!</p>
         </div>
         <button
           className="pulse-button"
