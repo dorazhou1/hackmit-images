@@ -61,8 +61,8 @@ export function ConfigureGame() {
           style={{ width: "175px" }}
         >
           <option>(Easy) People</option>
-          <option>(Medium) Food</option>
-          <option>(Hard) Nature</option>
+          {/* <option>(Medium) Food</option>
+          <option>(Hard) Nature</option> */}
         </Form.Select>
       </Form.Group>
       <Button variant="primary" type="submit" onClick={onSubmit}>
