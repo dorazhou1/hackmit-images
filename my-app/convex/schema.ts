@@ -10,4 +10,9 @@ export default defineSchema({
     author: v.string(),
     body: v.string(),
   }),
+  images: defineTable({
+    name: v.string(),
+    data: v.string(), // Base64 image data or URL to the image
+    createdAt: v.number(),
+  }),
 });
