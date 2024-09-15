@@ -1,10 +1,17 @@
 import React from "react";
 import './style/result.css'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import happywhale from './style/HappyWhale.gif'
 
 export function Finish() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const { score } = location.state || {};
+  const { imageCount } = location.state || {};
+
+  console.log("image count in done", imageCount)
+
 
   const handleClick = () => {
     navigate("/test");
@@ -24,6 +31,7 @@ export function Finish() {
         <div className="title bubblefont">
         <img src={happywhale} alt="Description of the image" />
           <p>YOU'RE DONE!</p>
+          <p>Final score: {score} / {imageCount}</p>
         </div>
         <button
           className="pulse-button"

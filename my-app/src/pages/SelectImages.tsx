@@ -63,7 +63,7 @@ export function SelectImages() {
     if (counter < maxImages) {
       setCounter((prevCounter) => prevCounter + 1);
     } else {
-      navigate("/youwon", { state: { score: score } });
+      navigate("/youredone", { state: { score: score, imageCount: maxImages } });
     }
   };
 
@@ -75,11 +75,11 @@ export function SelectImages() {
     } else if (answer === "fake") {
       alert("That's incorrect");
     }
-    if (counter < maxImages) {
+    if (counter < maxImages -1) {
       setCounter((prevCounter) => prevCounter + 1);
       // go to next image
     } else {
-      navigate("/youwon", { state: { score: score } });
+      navigate("/youredone", { state: { score: score, imageCount: maxImages } });
     }
   };
 
