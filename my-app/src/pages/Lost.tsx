@@ -1,7 +1,7 @@
 import React from "react";
-import './style/home.css'
-import sadwhale from './style/SadWhale.gif';
+import './style/result.css'
 import { useNavigate } from 'react-router-dom';
+import sadwhale from './style/sWhale.gif'
 
 export function Lost(){
     const navigate = useNavigate();
@@ -9,9 +9,40 @@ export function Lost(){
     const handleClick = () => {
       navigate('/test');
     };
-    return(
-        <div>
-            
-        </div>
-    );
+
+    return (
+        <>
+          <div 
+            style={{
+              backgroundColor: "#a7e4fa",
+              backgroundImage: "url(./bubbles.png)",
+              height: "100vh",
+              padding: "10%",
+            }}
+          >
+            <div className="container">
+            <div className="title bubblefont">
+            <img src={sadwhale} alt="Description of the image" />
+              <p>YOU LOST!</p>
+            </div>
+            <button
+              className="pulse-button"
+              onClick={handleClick}
+              style={{
+                marginTop: "20px", // Space between the text and button
+                padding: "10px 20px", // Padding inside the button
+                fontSize: "3rem", // Font size of the button text
+                color: "white",
+                backgroundColor: "navy",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Play Again?
+            </button>
+          </div>
+          </div>
+        </>
+      );
 }

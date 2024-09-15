@@ -1,7 +1,7 @@
 import React from "react";
-import "./style/home.css";
-import happywhale from "./style/HappyWhale.gif";
+import './style/result.css'
 import { useNavigate } from "react-router-dom";
+import happywhale from './style/HappyWhale.gif'
 
 export function Won() {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export function Won() {
 
   return (
     <>
-      <div
+      <div 
         style={{
           backgroundColor: "#a7e4fa",
           backgroundImage: "url(./bubbles.png)",
@@ -20,7 +20,9 @@ export function Won() {
           padding: "10%",
         }}
       >
-        <div className="sniglet-extrabold">
+        <div className="container">
+        <div className="title bubblefont">
+        <img src={happywhale} alt="Description of the image" />
           <p>YOU WON!</p>
         </div>
         <button
@@ -39,6 +41,7 @@ export function Won() {
         >
           Play Again?
         </button>
+      </div>
       </div>
     </>
   );
