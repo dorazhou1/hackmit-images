@@ -12,13 +12,18 @@ export const list = query({
 
 // upload images
 
-export const upload = mutation(async ({ db }, { imageName, imageData }) => {
-  const imageRecord = {
-    name: imageName,
-    data: imageData, // This should be Base64 or Blob
-    createdAt: new Date(),
-  };
+export const upload = mutation(
+  async (
+    { db },
+    { imageName, imageData }: { imageName: string; imageData: string },
+  ) => {
+    const imageRecord = {
+      name: imageName,
+      data: imageData, // This should be Base64 or Blob
+      createdAt: Date.now(),
+    };
 
-  const id = await db.insert("images", imageRecord);
-  return id;
-});
+    const id = await db.insert("images", imageRecord);
+    return id;
+  },
+);
