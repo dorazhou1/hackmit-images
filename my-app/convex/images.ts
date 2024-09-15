@@ -19,7 +19,8 @@ export const upload = mutation(
   ) => {
     const imageRecord = {
       name: imageName,
-      data: imageData, // This should be Base64 or Blob
+      data: imageData,
+      category: "people",
       createdAt: Date.now(),
     };
 
@@ -27,3 +28,15 @@ export const upload = mutation(
     return id;
   },
 );
+
+export const get_by_name = query({
+  args: { name: v.string() },
+  handler: async (ctx, args) => {
+    // Grab the most recent messages.
+    const images = await ctx.db
+      .query("images")
+      .filter((q) => q.eq(q.field("name"), args.name))
+      .collect();
+    return images.length > 0 ? images[0] : null;
+  },
+});

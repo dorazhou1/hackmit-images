@@ -13,6 +13,7 @@ export default defineSchema({
   images: defineTable({
     name: v.string(),
     data: v.string(), // Base64 image data or URL to the image
+    category: v.string(),
     createdAt: v.number(),
   }),
 });
