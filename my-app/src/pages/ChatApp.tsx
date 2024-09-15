@@ -13,7 +13,7 @@ export function ChatApp() {
     <Layout menu={<UserMenu>{viewer}</UserMenu>}>
       <ChatIntro />
       <Chat viewer={viewer} />
-      <Image imageID="girl" />
+      <Image imageID="girl-smiling-flowers.jpg" />
     </Layout>
   );
 }
