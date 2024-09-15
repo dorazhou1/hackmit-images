@@ -19,6 +19,7 @@
 
 from io import BytesIO
 from pathlib import Path
+from os import listdir
 
 import modal
 
@@ -102,24 +103,22 @@ class Model:
         return image_bytes
 
 # image = "river-surrounded-by-forests-cloudy-sky-thuringia-germany.jpg"
-
-# images = ['beautiful-scenery-mesas-landscape-bryce-canyon-national-park-utah-usa_181624-41945.avif', 'beautiful-shot-little-river-forest_181624-1520.jpg', 'lac-du-pontet-alps_181624-25842.avif', 'morning-light-sonoran-desert-scottsdale-arizona_181624-48339.avif', 'mount-mont-blanc-covered-snow-reflecting-water-evening-chamonix-france_181624-33408.avif', 'pier-lake-hallstatt-austria_181624-44201.avif', 'river-surrounded-by-forests-cloudy-sky-thuringia-germany.jpg']
+images = {}
+images['nature'] = ['beautiful-scenery-mesas-landscape-bryce-canyon-national-park-utah-usa_181624-41945.avif', 'beautiful-shot-little-river-forest_181624-1520.jpg', 'lac-du-pontet-alps_181624-25842.avif', 'morning-light-sonoran-desert-scottsdale-arizona_181624-48339.avif', 'mount-mont-blanc-covered-snow-reflecting-water-evening-chamonix-france_181624-33408.avif', 'pier-lake-hallstatt-austria_181624-44201.avif', 'river-surrounded-by-forests-cloudy-sky-thuringia-germany.jpg']
 # images = get_images("demo_images/nature")
-# images = ['close-up-fork-with-bowl-fruit_23-2148233265.jpg', 'closeup-delicious-cooked-rice-with-vegetables-sauce-plate-table_181624-34969.jpg', 'cookies-ice-cream-arrangement-high-angle_23-2149836001.jpg', 'delicious-tacos-basket-high-angle_23-2148629319.jpg', 'fast-food-concept-with-american-flag_23-2147695719.jpg', 'still-life-delicious-american-hamburger_23-2149637320.jpg', 'stir-fry-chicken-zucchini-sweet-peppers-green-onion_2829-10786.jpg']
-images = ['african-american-woman-smiling-portrait_1303-12373.jpg', 'diverse-friends-students-shoot_53876-47012.jpg', 'front-view-smiley-people-group-therapy-session.jpg', 'medium-shot-happy-family-indoors_23-2148880377.jpg', 'pensive-woman-architect-working-home_273609-20496.jpg', 'people-posing-together-registration-day_23-2149096794.jpg', 'person-indian-origin-having-fun_23-2150285283.jpg', 'side-view-man-woman-conversing-group-therapy-session.jpg', 'smiley-childrens-book-day-event.jpg', 'warm-loving-capturing-joyful-moments-families-from-different-backgrounds_1274913-8944.jpg', 'young-bearded-man-with-striped-shirt_273609-5677.jpg', 'young-family-with-their-little-son-home_1303-20993.jpg'] 
-# images = ['cat.jpg', 'dog.png']
+images['food'] = ['close-up-fork-with-bowl-fruit_23-2148233265.jpg', 'closeup-delicious-cooked-rice-with-vegetables-sauce-plate-table_181624-34969.jpg', 'cookies-ice-cream-arrangement-high-angle_23-2149836001.jpg', 'delicious-tacos-basket-high-angle_23-2148629319.jpg', 'fast-food-concept-with-american-flag_23-2147695719.jpg', 'still-life-delicious-american-hamburger_23-2149637320.jpg', 'stir-fry-chicken-zucchini-sweet-peppers-green-onion_2829-10786.jpg']
+images['people'] = ['african-american-woman-smiling-portrait_1303-12373.jpg', 'diverse-friends-students-shoot_53876-47012.jpg', 'front-view-smiley-people-group-therapy-session.jpg', 'medium-shot-happy-family-indoors_23-2148880377.jpg', 'pensive-woman-architect-working-home_273609-20496.jpg', 'people-posing-together-registration-day_23-2149096794.jpg', 'person-indian-origin-having-fun_23-2150285283.jpg', 'side-view-man-woman-conversing-group-therapy-session.jpg', 'smiley-childrens-book-day-event.jpg', 'warm-loving-capturing-joyful-moments-families-from-different-backgrounds_1274913-8944.jpg', 'young-bearded-man-with-striped-shirt_273609-5677.jpg', 'young-family-with-their-little-son-home_1303-20993.jpg'] 
+images['animals'] = ['cat.jpg', 'dog.png']
 
 @app.local_entrypoint()
-def main(
+def main(category='food'
 ):
-    for image in images:
-        image_path = Path(__file__).parent / "demo_images/People" / image
+    for image in images[category]:
+        image_path = Path(__file__).parent / "demo_images" / category / image
         desc = ' '.join(image.split('_')[0].split('.')[0].split('-'))
         with open(image_path, "rb") as image_file:
             input_image_bytes = image_file.read()
             output_image_bytes = Model().inference.remote(input_image_bytes, desc+", 8k")
-            
-            # output_image_bytes = Model().inference.remote(input_image_bytes, "diverse friends, people, 8k")
 
         dir = Path(__file__).parent / "output_images"
         if not dir.exists():
@@ -129,7 +128,6 @@ def main(
         print(f"Saving it to {output_path}")
         with open(output_path, "wb") as f:
             f.write(output_image_bytes)
-
 
 # ## Running the model
 #
