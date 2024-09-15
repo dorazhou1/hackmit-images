@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import oceanBackground from './style/home-page-ocean-background.gif';
+import oceanBackground from './style/oceangif.gif';
 import React from "react";
 import './style/bubblefont.css'
 // Game Main Page
@@ -20,19 +20,20 @@ export function Home() {
           justifyContent: 'center' // Optional: center items horizontally
         }}
       >
-        <h1 style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)',
-        color: 'navy',
+        <h1 style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)',
+        color: 'rgb(173,216,230)',
         fontSize: '6rem',
         textAlign: 'center',
         borderRadius: '60px',
         padding: '20px', // Adjust padding to fit your design
         maxWidth: '90%', // Limit the width to prevent stretching
-        boxSizing: 'border-box' // Include padding and border in element’s total width and height
+        boxSizing: 'border-box', // Include padding and border in element’s total width and height
+        textShadow: '2px 2px 0 rgba(0, 0, 0, 0.8), -2px -2px 0 rgba(0, 0, 0, 0.8), 2px -2px 0 rgba(0, 0, 0, 0.8), -2px 2px 0 rgba(0, 0, 0, 0.8)',
         }}>
         Deep Sea Deepfake Discovery!
         </h1>
 
-        <button style={{ fontFamily: "Times",
+        <button style={{ fontFamily: "Arial",
         marginTop: '20px', // Space between the text and button
         padding: '10px 20px', // Padding inside the button
         fontSize: '3rem', // Font size of the button text
