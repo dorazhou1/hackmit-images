@@ -7,6 +7,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "@/pages/Home";
 import { ChatApp } from "@/pages/ChatApp";
+import { ImagePage } from "@/pages/ImagePage";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<ChatApp />} />
           <Route path="/test" element={<Home />} />
+          <Route path="/image" element={<ImagePage />} />
         </Routes>
       </Router>
     </>
