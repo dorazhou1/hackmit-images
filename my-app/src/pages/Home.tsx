@@ -9,7 +9,7 @@ export function Home() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/selectimages');
+    navigate('/configuregame');
   };
 
   return (
