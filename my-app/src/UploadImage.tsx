@@ -21,6 +21,7 @@ export function UploadImage() {
   };
 
   const handleSubmit = async () => {
+    console.log("button pressed");
     if (imageName && imageData) {
       await uploadImage({ imageName, imageData });
       alert("Image uploaded!");

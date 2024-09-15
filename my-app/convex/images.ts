@@ -10,6 +10,15 @@ export const list = query({
   },
 });
 
-export const generateUploadUrl = mutation(async (ctx) => {
-  return await ctx.storage.generateUploadUrl();
+// upload images
+
+export const upload = mutation(async ({ db }, { imageName, imageData }) => {
+  const imageRecord = {
+    name: imageName,
+    data: imageData, // This should be Base64 or Blob
+    createdAt: new Date(),
+  };
+
+  const id = await db.insert("images", imageRecord);
+  return id;
 });

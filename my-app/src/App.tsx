@@ -18,6 +18,7 @@ export default function App() {
           <Route path="/" element={<ChatApp />} />
           <Route path="/test" element={<Home />} />
           <Route path="/selectimages" element={<SelectImages />} />
+          {/* <Route path="/test" element={<Home />} /> */}
           <Route path="/image" element={<ImagePage />} />
         </Routes>
       </Router>
