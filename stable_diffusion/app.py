@@ -1,7 +1,7 @@
 from flask import Flask, request
 import subprocess
 
-from stable_diffusion_xl_turbo import generate_images
+# from stable_diffusion_xl_turbo import generate_images
 app = Flask(__name__)
 
 

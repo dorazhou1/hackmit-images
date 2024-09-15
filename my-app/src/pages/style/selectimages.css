@@ -10,3 +10,17 @@
     font-weight: 800;
     font-style: normal;
 }
+.images-fishy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1;
+}
+.im {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    flex-grow: 1;
+    width: 50%;
+    height: 400px;
+}
