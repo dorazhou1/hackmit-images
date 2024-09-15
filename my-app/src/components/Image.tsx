@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { RetrieveImage } from "@/UploadImage";
 // component for displaying an image during the game
 
 export function Image({ imageID }: { imageID: string }) {
@@ -6,7 +7,7 @@ export function Image({ imageID }: { imageID: string }) {
     <>
       <div>
         This is a test to see if the Image component can work!
-        {imageID}
+        <RetrieveImage imageName="girl-smiling-flowers.jpg" />
       </div>
     </>
   );
