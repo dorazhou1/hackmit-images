@@ -6,7 +6,6 @@ export function Image({ imageID }: { imageID: string }) {
   return (
     <>
       <div>
-        This is a test to see if the Image component can work!
         <RetrieveImage imageName={imageID} />
       </div>
     </>

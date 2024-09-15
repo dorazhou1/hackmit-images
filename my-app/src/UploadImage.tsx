@@ -28,7 +28,9 @@ export function UploadImage() {
     console.log(imageName);
     if (imageName && imageData) {
       console.log("valid image");
-      await uploadImage({ imageName, imageData });
+      const category = "food";
+      const type = "real";
+      await uploadImage({ imageName, imageData, category, type });
       alert("Image uploaded!");
     } else {
       alert("Please select an image.");
@@ -48,7 +50,6 @@ export function RetrieveImage({ imageName }: { imageName: string }) {
 
   return (
     <>
-      <div>Retrieve image!</div>
       <div>
         {image ? (
           <img src={image.data} alt={image.name} />

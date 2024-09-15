@@ -15,12 +15,18 @@ export const list = query({
 export const upload = mutation(
   async (
     { db },
-    { imageName, imageData }: { imageName: string; imageData: string },
+    {
+      imageName,
+      imageData,
+      category,
+      type,
+    }: { imageName: string; imageData: string; category: string; type: string },
   ) => {
     const imageRecord = {
       name: imageName,
       data: imageData,
-      category: "people",
+      category: category,
+      type: type,
       createdAt: Date.now(),
     };
 

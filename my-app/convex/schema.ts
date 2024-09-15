@@ -14,6 +14,7 @@ export default defineSchema({
     name: v.string(),
     data: v.string(), // Base64 image data or URL to the image
     category: v.string(),
+    type: v.string(),
     createdAt: v.number(),
   }),
 });
