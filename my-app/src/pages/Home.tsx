@@ -1,10 +1,17 @@
 import { ReactNode } from "react";
 import oceanBackground from './style/oceangif.gif';
 import React from "react";
-import './style/bubblefont.css'
+import './style/home.css'
+import { useNavigate } from 'react-router-dom';
 // Game Main Page
 
 export function Home() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/selectimages');
+  };
+
   return (
     <React.Fragment>
       <div 
@@ -33,7 +40,9 @@ export function Home() {
         Deep Sea Deepfake Discovery!
         </h1>
 
-        <button style={{ fontFamily: "Arial",
+        <button className="pulse-button"
+        onClick={handleClick} 
+        style={{ fontFamily: "Arial",
         marginTop: '20px', // Space between the text and button
         padding: '10px 20px', // Padding inside the button
         fontSize: '3rem', // Font size of the button text

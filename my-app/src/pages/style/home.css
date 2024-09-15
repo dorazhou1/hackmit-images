@@ -1,0 +1,45 @@
+/* bubble style css*/
+@font-face {
+  font-family: 'SnigletExtraBold';
+  src: url('./Sniglet/Sniglet-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.sniglet-extrabold {
+    font-family: "SnigletExtraBold", system-ui, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+
+  .pulse-button {
+    font-family: Arial;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 3rem;
+    color: white;
+    background-color: navy;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease; /* Optional: smooth transition for scaling */
+  }
+  
+  .pulse-button:hover {
+    animation: pulse 1s infinite; /* Apply the pulse animation */
+  }
+  
+  /* Keyframes for pulsing effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1); /* Start at original size */
+    }
+    50% {
+      transform: scale(1.1); /* Scale up */
+    }
+    100% {
+      transform: scale(1); /* Return to original size */
+    }
+  }
