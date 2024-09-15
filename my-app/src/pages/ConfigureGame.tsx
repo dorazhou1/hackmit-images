@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
+import './style/configuregame.css'
 
 export function ConfigureGame() {
   const [imageCount, setImageCount] = useState("3");
@@ -28,11 +29,17 @@ export function ConfigureGame() {
     });
   };
   return (
-    <>
-      <div>
+    <div className='form-container form-group'
+    style={{ 
+      backgroundColor: "#2D95C0",
+      backgroundImage: "url(./bubbles.png)",
+      height: "max(100%, 100vh)",
+      padding: "10%",}}>
+      <div className="form-title bubblefont">
         <h1> Please configure your game parameters.</h1>
       </div>
-      <Form.Group className="mb-3">
+      <div className="box">
+      <Form.Group className="mb-3 ">
         <Form.Label>How many images would you like to test?</Form.Label>
         <Form.Select
           value={imageCount}
@@ -46,7 +53,7 @@ export function ConfigureGame() {
           <option>5</option>
         </Form.Select>
       </Form.Group>
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-3 form-label">
         <Form.Label>Select a Category</Form.Label>
         <Form.Select
           value={category}
@@ -61,7 +68,8 @@ export function ConfigureGame() {
       <Button variant="primary" type="submit" onClick={onSubmit}>
         Submit
       </Button>
-    </>
+      </div>
+      </div>
   );
 }
 
